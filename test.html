@@ -19,48 +19,48 @@
 
 	// http://blog.teamtreehouse.com/uploading-files-ajax
 
-	var form = document.getElementById('file-form');
-	var fileSelect = document.getElementById('file-select');
-	var uploadButton = document.getElementById('upload-button');
+	// var form = document.getElementById('file-form');
+	// var fileSelect = document.getElementById('file-select');
+	// var uploadButton = document.getElementById('upload-button');
 
-	form.onsubmit = function(event) {
-	  event.preventDefault();
+	// form.onsubmit = function(event) {
+	//   event.preventDefault();
 
-	  // Update button text.
-	  uploadButton.innerHTML = 'Uploading...';
+	//   // Update button text.
+	//   uploadButton.innerHTML = 'Uploading...';
 
-	  // Get the selected files from the input.
-		var files = fileSelect.files;
+	//   // Get the selected files from the input.
+	// 	var files = fileSelect.files;
 
-		// Create a new FormData object.
-		var formData = new FormData();
+	// 	// Create a new FormData object.
+	// 	var formData = new FormData();
 
-		// Loop through each of the selected files.
-		for (var i = 0; i < files.length; i++) {
-		  var file = files[i];
+	// 	// Loop through each of the selected files.
+	// 	for (var i = 0; i < files.length; i++) {
+	// 	  var file = files[i];
 
-		  // Check the file type.
-		  if (!file.type.match('pdf.*')) {
-		    continue;
-		  }
+	// 	  // Check the file type.
+	// 	  if (!file.type.match('pdf.*')) {
+	// 	    continue;
+	// 	  }
 
-		  // Add the file to the request.
-		  formData.append('logs[]', file, file.name);
-		}
-	}
+	// 	  // Add the file to the request.
+	// 	  formData.append('logs[]', file, file.name);
+	// 	}
+	// }
 
 
-	$(document).ready(function() {
-		$.ajax({
-			type: "GET",
-			url: "movies.csv",
-			dataType: "text",
-			success: function(data) {
-				processData(data);
-				console.log(data);
-			}
-		});
-	});
+	// $(document).ready(function() {
+	// 	$.ajax({
+	// 		type: "GET",
+	// 		url: "movies.csv",
+	// 		dataType: "text",
+	// 		success: function(data) {
+	// 			processData(data);
+	// 			console.log(data);
+	// 		}
+	// 	});
+	// });
 
 // 	function processData(allText) {
 //     var allTextLines = allText.split(/\r\n|\n/);
@@ -80,11 +80,31 @@
 //     }
 // console.log(lines);
 // }
-	function findMovies(data) {
-		var movies = [],
-			re = /[*][*][*]  [^*]([^*]*)/g;
+	// function findMovies(data) {
+	// 	var movies = [],
+	// 		re = /[*][*][*]  [^*]([^*]*)/g;
 
-	}
+	// }
+	// 
+	
+	// var pdfId = "05-24-15";
+
+	var nodeUtil = require("util"),
+      fs = require('fs'),
+      _ = require('underscore'),
+      PDFParser = require("./pdf2json/pdfparser");
+
+  var pdfParser = new PDFParser();
+
+  pdfParser.on("pdfParser_dataReady", _.bind(_onPFBinDataReady, self));
+
+  pdfParser.on("pdfParser_dataError", _.bind(_onPFBinDataError, self));
+
+  var pdfFilePath = "05-24-15.pdf";
+
+  var pdf2json = pdfParser.loadPDF(pdfFilePath);
+
+  console.log(pdf2json);
 
 
 	</script>

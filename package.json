@@ -1,0 +1,35 @@
+{
+  "name": "log-scraping",
+  "version": "1.0.0",
+  "description": "Scraping TV logs for local break and title information",
+  "main": "main.js",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt" : "~0.4.5",
+    "grunt-contrib-jshint" : "~0.10.0",
+    "grunt-contrib-nodeunit" : "~0.4.1",
+    "grunt-contrib-uglify" : "~0.5.0",
+    "grunt-browserify": "^4.0.1",
+    "pdf2json": "^0.7.1"
+    },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ajskelton/log-scraping.git"
+  },
+  "keywords": [
+    "data",
+    "scrape",
+    "datamine",
+    "pdf",
+    "logs"
+  ],
+  "author": "AnthonySkelton",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ajskelton/log-scraping/issues"
+  },
+  "homepage": "https://github.com/ajskelton/log-scraping"
+}
